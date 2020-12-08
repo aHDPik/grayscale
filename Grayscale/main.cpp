@@ -4,6 +4,21 @@
 
 void modifyImage(std::uint8_t* inputImage, std::uint8_t* outputImage, int width, int height) {
 	std::memcpy(outputImage, inputImage, width * height * 3);
+	
+	//[b00 g00 r00 b10 g10 r10 b20 g20 r20 b01 g01 r01 b11 g11 r11 b21 g21 r21]
+	//[0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17 ]
+
+	//Для того, чтобы преобразовать цветное изображение в черно - белое, нужно найти среднее арифметическое значение B, G, R каналов пикселя.
+	//Затем это значение присвоить BGR каналам этого же пикселя
+	
+	int size = width * height * 3;
+	for (int i = 0; i < size; i++) {//перебираем в цикле все пиксели исходного изображения
+		int ovrll = (inputImage[i] + inputImage[i + 1] + inputImage[i + 2]) / 3;//Нахождение среднего арифметического значения B, G, R каналов пикселя
+		outputImage[i] = ovrll;//Присваивание среднего арифметического значения B, G, R каналам 
+		outputImage[i + 1] = ovrll;
+		outputImage[i + 2] = ovrll;
+		i += 2;//Переходим к следующим трем каналам 
+	}
 }
 
 int main(int argc, char** argv) {
