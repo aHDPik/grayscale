@@ -5,22 +5,33 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Grayscale", "Grayscale\Grayscale.vcxproj", "{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageIPM", "ImageIPM\ImageIPM.csproj", "{12370379-DF34-415B-B5FA-08A134C07CE4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IPMMatrixNet", "IPMMatrixNet\IPMMatrixNet.vcxproj", "{72968F2A-CBE9-47AF-9183-6F45CEC80210}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IPMMatrix", "IPMMatrix\IPMMatrix.vcxproj", "{9B5DD0DE-BA62-4174-9B87-AACE6DF54B5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
 		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Debug|x64.ActiveCfg = Debug|x64
 		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Debug|x64.Build.0 = Debug|x64
-		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Debug|x86.ActiveCfg = Debug|Win32
-		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Debug|x86.Build.0 = Debug|Win32
 		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Release|x64.ActiveCfg = Release|x64
 		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Release|x64.Build.0 = Release|x64
-		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Release|x86.ActiveCfg = Release|Win32
-		{C1C53F09-F081-4769-9CAE-D62DEDB6BCA7}.Release|x86.Build.0 = Release|Win32
+		{12370379-DF34-415B-B5FA-08A134C07CE4}.Debug|x64.ActiveCfg = Debug|x64
+		{12370379-DF34-415B-B5FA-08A134C07CE4}.Debug|x64.Build.0 = Debug|x64
+		{12370379-DF34-415B-B5FA-08A134C07CE4}.Release|x64.ActiveCfg = Release|x64
+		{72968F2A-CBE9-47AF-9183-6F45CEC80210}.Debug|x64.ActiveCfg = Debug|x64
+		{72968F2A-CBE9-47AF-9183-6F45CEC80210}.Debug|x64.Build.0 = Debug|x64
+		{72968F2A-CBE9-47AF-9183-6F45CEC80210}.Release|x64.ActiveCfg = Release|x64
+		{72968F2A-CBE9-47AF-9183-6F45CEC80210}.Release|x64.Build.0 = Release|x64
+		{9B5DD0DE-BA62-4174-9B87-AACE6DF54B5E}.Debug|x64.ActiveCfg = Debug|x64
+		{9B5DD0DE-BA62-4174-9B87-AACE6DF54B5E}.Debug|x64.Build.0 = Debug|x64
+		{9B5DD0DE-BA62-4174-9B87-AACE6DF54B5E}.Release|x64.ActiveCfg = Release|x64
+		{9B5DD0DE-BA62-4174-9B87-AACE6DF54B5E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

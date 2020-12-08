@@ -1,0 +1,40 @@
+﻿<Window x:Class="ImageIPM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageIPM"
+        mc:Ignorable="d"
+        Title="Применитель матриц" Height="450" Width="1200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="5">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Открыть.." Name="openMenu" Click="openMenu_Click"/>
+            </MenuItem>
+        </Menu>
+        <Image Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Name="img"/>
+        <Image Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Name="modifiedImg"/>
+        <TextBox Name="aTb" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">1</TextBox>
+        <TextBox Name="bTb" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
+        <TextBox Name="cTb" Grid.Row="1" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
+        <TextBox Name="dTb" Grid.Row="2" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
+        <TextBox Name="eTb" Grid.Row="2" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">1</TextBox>
+        <TextBox Name="fTb" Grid.Row="2" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
+        <TextBox Name="gTb" Grid.Row="3" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
+        <TextBox Name="hTb" Grid.Row="3" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
+        <TextBox Name="iTb" Grid.Row="3" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">1</TextBox>
+    </Grid>
+</Window>
