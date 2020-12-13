@@ -20,7 +20,7 @@ void matrixipm::ipm(unsigned char* input, unsigned char* output, int width, int 
 		int v = (D * x + E * y + F) / (G * x + H * y + I);//координата н входного изображения
 
 		int indIn = ((v * width + u) * 3);//индекс для входного изображения
-		if (indIn >= 0 && indIn < size) {
+		if (indIn >= 0 && indIn < size) {//
 			for (int k = 0; k < 3; k++) {
 				output[indOut + k] = input[indIn + k];//копируем пиксели для трех каналов
 			}
