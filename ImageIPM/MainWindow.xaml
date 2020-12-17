@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImageIPM"
         mc:Ignorable="d"
-        Title="Применитель матриц" Height="450" Width="1200">
+        Title="Применитель матриц" Height="450" Width="1200" SizeChanged="Window_SizeChanged">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -23,10 +23,13 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="5">
             <MenuItem Header="Файл">
                 <MenuItem Header="Открыть.." Name="openMenu" Click="openMenu_Click"/>
+                <MenuItem Header="Открыть по 4 точкам.." Name="open4PointsMenu" Click="open4PointsMenu_Click"/>
             </MenuItem>
         </Menu>
-        <Image Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Name="img"/>
-        <Image Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Name="modifiedImg"/>
+        <Image Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Name="img" MouseLeftButtonUp="img_MouseLeftButtonUp" Panel.ZIndex="0"/>
+        <Canvas Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Name="imgCanvas" Panel.ZIndex="1"/>
+        <Image Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Name="modifiedImg" MouseLeftButtonUp="modifiedImg_MouseLeftButtonUp"/>
+        <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Name="modifiedImgCanvas"/>
         <TextBox Name="aTb" Grid.Row="1" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">1</TextBox>
         <TextBox Name="bTb" Grid.Row="1" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
         <TextBox Name="cTb" Grid.Row="1" Grid.Column="4" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">0</TextBox>
