@@ -26,9 +26,9 @@ namespace matrixipm {
 
 	void ipm4Points(std::vector<ImagePoint> originalPoints, std::vector<ImagePoint> modifiedPoints, unsigned char* input, unsigned char* output, int width, int height);
 
-	Matr createMatr(std::vector<ImagePoint> points, Matr m);
+	void createMatr(std::vector<ImagePoint> points, Matr &matr);
 
-	Matr createInverseMatr(Matr m);
+	void createInverseMatr(Matr &matr);
 
-	Matr multiplyMatr(Matr firstMatr, Matr secondMatr, Matr resultMatr);
+	void multiplyMatr(Matr firstMatr, Matr secondMatr, Matr &resultMatr);
 }

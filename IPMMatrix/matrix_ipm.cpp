@@ -39,13 +39,13 @@ namespace matrixipm {
 		createMatr(originalPoints, ori);
 		createInverseMatr(ori);
 		createMatr(modifiedPoints, mod);
-		multiplyMatr(ori, mod, res);
+		multiplyMatr(mod, ori, res);
 		ipm(input, output, width, height, res);
 	}
 
-	Matr createMatr(vector<ImagePoint> points, Matr matr) 
+	void createMatr(vector<ImagePoint> points, Matr &matr) 
 	{
-		int	deltaX1 = points[1].x - points[2].x, deltaX2 = points[3].x - points[2].x,
+		double deltaX1 = points[1].x - points[2].x, deltaX2 = points[3].x - points[2].x,
 			deltaY1 = points[1].y - points[2].y, deltaY2 = points[3].y - points[2].y,
 			sumX = points[0].x - points[1].x + points[2].x - points[3].x,
 			sumY = points[0].y - points[1].y + points[2].y - points[3].y;
@@ -64,10 +64,9 @@ namespace matrixipm {
 				matr.c = points[0].x, matr.d = points[1].y - points[0].y + matr.g * points[1].y,
 				matr.e = points[3].y - points[0].y + matr.h * points[3].y, matr.f = points[0].y;
 		}
-		return matr;
 	}
 
-	Matr createInverseMatr(Matr matr) 
+	void createInverseMatr(Matr &matr) 
 	{
 		int a = matr.a, b = matr.b, c = matr.c;
 		int d = matr.d, e = matr.e, f = matr.f;//матрица для преобразования
@@ -76,10 +75,10 @@ namespace matrixipm {
 		matr.a = e * i - f * h, matr.b = c * h - b * i, matr.c = b * f - c * e;
 		matr.d = f * g - d * i, matr.e = a * i - c * g, matr.f = c * d - a * f;//обратная матрица
 		matr.g = d * h - e * g, matr.h = b * g - a * h, matr.i = a * e - b * d;
-		return matr;
+		
 	}
 
-	Matr multiplyMatr(Matr firstMatr, Matr secondMatr, Matr resultMatr)
+	void multiplyMatr(Matr firstMatr, Matr secondMatr, Matr &resultMatr)
 	{
 		resultMatr.a = (firstMatr.a * secondMatr.a) + (firstMatr.b * secondMatr.d) + (firstMatr.c * secondMatr.g),
 			resultMatr.b = (firstMatr.a * secondMatr.b) + (firstMatr.b * secondMatr.e) + (firstMatr.c * secondMatr.h),
@@ -90,7 +89,6 @@ namespace matrixipm {
 			resultMatr.g = (firstMatr.g * secondMatr.a) + (firstMatr.h * secondMatr.d) + (firstMatr.i * secondMatr.g),
 			resultMatr.h = (firstMatr.g * secondMatr.b) + (firstMatr.h * secondMatr.e) + (firstMatr.i * secondMatr.h),
 			resultMatr.i = (firstMatr.g * secondMatr.c) + (firstMatr.h * secondMatr.f) + (firstMatr.i * secondMatr.i);
-		return resultMatr;
 	}
 
 }
