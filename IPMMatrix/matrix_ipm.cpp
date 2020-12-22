@@ -40,7 +40,6 @@ namespace matrixipm {
 		createInverseMatr(ori);
 		createMatr(modifiedPoints, mod);
 		multiplyMatr(ori, mod, res);
-		createInverseMatr(res);
 		ipm(input, output, width, height, res);
 	}
 
@@ -54,11 +53,11 @@ namespace matrixipm {
 		{
 			matr.a = points[1].x - points[0].x, matr.b = points[2].x - points[1].x, matr.c = points[0].x,
 				matr.d = points[1].y - points[0].y, matr.e = points[2].y - points[1].y, matr.f = points[0].y,
-				matr.g = 0, matr.h = 0; matr.i = 0;
+				matr.g = 0, matr.h = 0; matr.i = 1;
 		}
 		else
 		{
-			matr.i = 0, matr.g = (sumX * deltaY2 - deltaX2 * sumY) / (deltaX1 * deltaY2 - deltaX2 * deltaY1),
+			matr.i = 1, matr.g = (sumX * deltaY2 - deltaX2 * sumY) / (deltaX1 * deltaY2 - deltaX2 * deltaY1),
 				matr.h = (deltaX1 * sumY - sumX * deltaY1) / (deltaX1 * deltaY2 - deltaX2 * deltaY1),
 				matr.a = points[1].x - points[0].x + matr.g * points[1].x,
 				matr.b = points[3].x - points[0].x + matr.h * points[3].x,
