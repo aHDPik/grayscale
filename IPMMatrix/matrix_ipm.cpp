@@ -8,11 +8,10 @@ namespace matrixipm {
 	void ipm(unsigned char* input, unsigned char* output, int width, int height, Matr m)
 	{
 		int size = width * height * 3;//размер картинки
+		createInverseMatr(m);
 		for (int indOut = 0; indOut < size; indOut += 3) {//проходим по всем пикселям изображения
 			int x = (indOut / 3) % width;//координата x выходного изображения
 			int y = (indOut / 3) / width;//координата y выходного изображения
-
-			createInverseMatr(m);
 
 			int u = (m.a * x + m.b * y + m.c) / (m.g * x + m.h * y + m.i);//координата x входного изображения
 			int v = (m.d * x + m.e * y + m.f) / (m.g * x + m.h * y + m.i);//координата н входного изображения
@@ -66,19 +65,18 @@ namespace matrixipm {
 		}
 	}
 
-	void createInverseMatr(Matr &matr) 
+	void createInverseMatr(Matr &matr)
 	{
-		int a = matr.a, b = matr.b, c = matr.c;
-		int d = matr.d, e = matr.e, f = matr.f;//матрица для преобразования
-		int g = matr.g, h = matr.h, i = matr.i;
+		double a = matr.a, b = matr.b, c = matr.c,
+			d = matr.d, e = matr.e, f = matr.f,//матрица для преобразования
+			g = matr.g, h = matr.h, i = matr.i;
 
 		matr.a = e * i - f * h, matr.b = c * h - b * i, matr.c = b * f - c * e;
 		matr.d = f * g - d * i, matr.e = a * i - c * g, matr.f = c * d - a * f;//обратная матрица
 		matr.g = d * h - e * g, matr.h = b * g - a * h, matr.i = a * e - b * d;
-		
 	}
 
-	void multiplyMatr(Matr firstMatr, Matr secondMatr, Matr &resultMatr)
+	void multiplyMatr(Matr &firstMatr, Matr &secondMatr, Matr &resultMatr)
 	{
 		resultMatr.a = (firstMatr.a * secondMatr.a) + (firstMatr.b * secondMatr.d) + (firstMatr.c * secondMatr.g),
 			resultMatr.b = (firstMatr.a * secondMatr.b) + (firstMatr.b * secondMatr.e) + (firstMatr.c * secondMatr.h),

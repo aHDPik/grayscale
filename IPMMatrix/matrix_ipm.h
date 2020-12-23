@@ -30,5 +30,5 @@ namespace matrixipm {
 
 	void createInverseMatr(Matr &matr);
 
-	void multiplyMatr(Matr firstMatr, Matr secondMatr, Matr &resultMatr);
+	void multiplyMatr(Matr &firstMatr, Matr &secondMatr, Matr &resultMatr);
 }
